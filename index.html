@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <strong><i class="fas fa-calendar-alt mr-2"></i>EventHub</strong>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbar-menu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item is-active" href="index.html">
+                    <i class="fas fa-home mr-1"></i>Home
+                </a>
+                <a class="navbar-item" href="appointment.html">
+                    <i class="fas fa-calendar-check mr-1"></i>Book Appointment
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero is-info is-medium">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <i class="fas fa-star mr-2"></i>Discover Amazing Events
+                </h1>
+                <h2 class="subtitle">
+                    Find and book appointments for the best events in your area
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="title has-text-centered mb-6">
+                <i class="fas fa-calendar-alt mr-2"></i>Upcoming Events
+            </h2>
+            
+            <div class="columns is-multiline">
+                <!-- Event 1 -->
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/400x300/3273dc/ffffff?text=Tech+Conference" alt="Tech Conference">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4">Tech Conference 2024</p>
+                                    <p class="subtitle is-6">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>San Francisco, CA
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p><i class="fas fa-calendar mr-1"></i><strong>Date:</strong> March 15, 2024</p>
+                                <p><i class="fas fa-clock mr-1"></i><strong>Time:</strong> 9:00 AM - 6:00 PM</p>
+                                <p class="mt-3">Join industry leaders for the latest in technology innovations and networking opportunities.</p>
+                                <div class="tags mt-3">
+                                    <span class="tag is-primary">Technology</span>
+                                    <span class="tag is-info">Networking</span>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="event.html?id=1" class="card-footer-item">
+                                <i class="fas fa-info-circle mr-1"></i>View Details
+                            </a>
+                            <a href="appointment.html?event=tech-conference" class="card-footer-item">
+                                <i class="fas fa-calendar-plus mr-1"></i>Book Now
+                            </a>
+                        </footer>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/400x300/209cee/ffffff?text=Art+Exhibition" alt="Art Exhibition">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4">Modern Art Exhibition</p>
+                                    <p class="subtitle is-6">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>New York, NY
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p><i class="fas fa-calendar mr-1"></i><strong>Date:</strong> March 20 - April 15, 2024</p>
+                                <p><i class="fas fa-clock mr-1"></i><strong>Time:</strong> 10:00 AM - 8:00 PM</p>
+                                <p class="mt-3">Experience contemporary masterpieces from renowned artists around the world.</p>
+                                <div class="tags mt-3">
+                                    <span class="tag is-warning">Art</span>
+                                    <span class="tag is-success">Culture</span>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="event.html?id=2" class="card-footer-item">
+                                <i class="fas fa-info-circle mr-1"></i>View Details
+                            </a>
+                            <a href="appointment.html?event=art-exhibition" class="card-footer-item">
+                                <i class="fas fa-calendar-plus mr-1"></i>Book Now
+                            </a>
+                        </footer>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/400x300/48c774/ffffff?text=Food+Festival" alt="Food Festival">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4">International Food Festival</p>
+                                    <p class="subtitle is-6">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>Chicago, IL
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p><i class="fas fa-calendar mr-1"></i><strong>Date:</strong> March 25, 2024</p>
+                                <p><i class="fas fa-clock mr-1"></i><strong>Time:</strong> 11:00 AM - 10:00 PM</p>
+                                <p class="mt-3">Taste authentic cuisines from around the globe and meet talented chefs.</p>
+                                <div class="tags mt-3">
+                                    <span class="tag is-danger">Food</span>
+                                    <span class="tag is-link">Festival</span>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="event.html?id=3" class="card-footer-item">
+                                <i class="fas fa-info-circle mr-1"></i>View Details
+                            </a>
+                            <a href="appointment.html?event=food-festival" class="card-footer-item">
+                                <i class="fas fa-calendar-plus mr-1"></i>Book Now
+                            </a>
+                        </footer>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/400x300/ff3860/ffffff?text=Music+Concert" alt="Music Concert">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4">Summer Music Concert</p>
+                                    <p class="subtitle is-6">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>Los Angeles, CA
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p><i class="fas fa-calendar mr-1"></i><strong>Date:</strong> April 5, 2024</p>
+                                <p><i class="fas fa-clock mr-1"></i><strong>Time:</strong> 7:00 PM - 11:00 PM</p>
+                                <p class="mt-3">Enjoy live performances from top artists in an unforgettable outdoor venue.</p>
+                                <div class="tags mt-3">
+                                    <span class="tag is-primary">Music</span>
+                                    <span class="tag is-info">Concert</span>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="event.html?id=4" class="card-footer-item">
+                                <i class="fas fa-info-circle mr-1"></i>View Details
+                            </a>
+                            <a href="appointment.html?event=music-concert" class="card-footer-item">
+                                <i class="fas fa-calendar-plus mr-1"></i>Book Now
+                            </a>
+                        </footer>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/400x300/ffdd57/333333?text=Fitness+Workshop" alt="Fitness Workshop">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4">Wellness & Fitness Workshop</p>
+                                    <p class="subtitle is-6">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>Austin, TX
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p><i class="fas fa-calendar mr-1"></i><strong>Date:</strong> April 10, 2024</p>
+                                <p><i class="fas fa-clock mr-1"></i><strong>Time:</strong> 8:00 AM - 12:00 PM</p>
+                                <p class="mt-3">Learn about healthy living, fitness routines, and mindfulness practices.</p>
+                                <div class="tags mt-3">
+                                    <span class="tag is-warning">Wellness</span>
+                                    <span class="tag is-success">Fitness</span>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="event.html?id=5" class="card-footer-item">
+                                <i class="fas fa-info-circle mr-1"></i>View Details
+                            </a>
+                            <a href="appointment.html?event=fitness-workshop" class="card-footer-item">
+                                <i class="fas fa-calendar-plus mr-1"></i>Book Now
+                            </a>
+                        </footer>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/400x300/9932cc/ffffff?text=Business+Summit" alt="Business Summit">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4">Entrepreneurship Summit</p>
+                                    <p class="subtitle is-6">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>Miami, FL
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p><i class="fas fa-calendar mr-1"></i><strong>Date:</strong> April 18, 2024</p>
+                                <p><i class="fas fa-clock mr-1"></i><strong>Time:</strong> 9:00 AM - 5:00 PM</p>
+                                <p class="mt-3">Connect with successful entrepreneurs and learn winning business strategies.</p>
+                                <div class="tags mt-3">
+                                    <span class="tag is-primary">Business</span>
+                                    <span class="tag is-info">Entrepreneurship</span>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="event.html?id=6" class="card-footer-item">
+                                <i class="fas fa-info-circle mr-1"></i>View Details
+                            </a>
+                            <a href="appointment.html?event=business-summit" class="card-footer-item">
+                                <i class="fas fa-calendar-plus mr-1"></i>Book Now
+                            </a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>EventHub</strong> - Your gateway to amazing events. 
+                <br>
+                Built with <i class="fas fa-heart has-text-danger"></i> using <a href="https://bulma.io">Bulma</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

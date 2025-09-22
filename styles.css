@@ -1,0 +1,284 @@
+/* Custom styles for EventHub */
+
+/* Navigation improvements */
+.navbar-burger {
+    height: auto;
+}
+
+/* Card hover effects */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero section enhancements */
+.hero.is-info {
+    background: linear-gradient(135deg, #3273dc 0%, #209cee 100%);
+}
+
+.hero.is-medium .hero-body {
+    padding: 6rem 1.5rem;
+}
+
+/* Event cards styling */
+.card .card-image img {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-image {
+    overflow: hidden;
+}
+
+/* Tags styling */
+.tags .tag {
+    margin-bottom: 0.25rem;
+}
+
+/* Steps styling for appointment page */
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    min-width: 120px;
+    margin-bottom: 1rem;
+}
+
+.step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 60%;
+    width: 40%;
+    height: 2px;
+    background-color: #dbdbdb;
+    z-index: 0;
+}
+
+.step-item.is-completed:not(:last-child)::after {
+    background-color: #48c774;
+}
+
+.step-marker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.step-item.is-active .step-marker {
+    background-color: #3273dc;
+    color: white;
+    transform: scale(1.1);
+}
+
+.step-item.is-completed .step-marker {
+    background-color: #48c774;
+    color: white;
+}
+
+.step-details {
+    text-align: center;
+}
+
+.step-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+    color: #4a4a4a;
+}
+
+.step-item.is-active .step-title {
+    color: #3273dc;
+}
+
+.step-item.is-completed .step-title {
+    color: #48c774;
+}
+
+/* Form improvements */
+.field:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.input:focus, .select select:focus, .textarea:focus {
+    border-color: #3273dc;
+    box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
+}
+
+/* Booking summary styling */
+#booking-summary .media {
+    align-items: center;
+}
+
+#booking-summary .media-left .image {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Success modal styling */
+.modal-card-head {
+    background-color: #48c774;
+    color: white;
+}
+
+.modal-card-title {
+    color: white;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .steps {
+        flex-direction: column;
+    }
+    
+    .step-item {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-bottom: 0.5rem;
+    }
+    
+    .step-item:not(:last-child)::after {
+        display: none;
+    }
+    
+    .step-marker {
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+    
+    .step-details {
+        text-align: left;
+    }
+    
+    .hero.is-medium .hero-body {
+        padding: 3rem 1.5rem;
+    }
+}
+
+/* Loading states */
+.is-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.is-loading::after {
+    animation: spinAround 500ms infinite linear;
+    border: 2px solid #dbdbdb;
+    border-radius: 290486px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    display: block;
+    height: 1em;
+    position: absolute;
+    left: calc(50% - (1em / 2));
+    top: calc(50% - (1em / 2));
+    width: 1em;
+}
+
+@keyframes spinAround {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+/* Button improvements */
+.button {
+    transition: all 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+/* Card footer improvements */
+.card-footer-item {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.card-footer-item:hover {
+    background-color: #f5f5f5;
+    color: #3273dc;
+}
+
+/* Event image placeholders */
+.image img {
+    object-fit: cover;
+}
+
+/* Notification improvements */
+.notification {
+    border-left: 4px solid transparent;
+}
+
+.notification.is-success {
+    border-left-color: #48c774;
+}
+
+.notification.is-info {
+    border-left-color: #3273dc;
+}
+
+.notification.is-warning {
+    border-left-color: #ffdd57;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #fafafa;
+    border-top: 1px solid #e8e8e8;
+    margin-top: 3rem;
+}
+
+/* Icon text alignment */
+.icon-text {
+    align-items: center;
+    display: inline-flex;
+}
+
+/* Custom checkbox styling */
+.checkbox input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+/* Mobile menu */
+@media screen and (max-width: 1023px) {
+    .navbar-menu {
+        box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-item {
+        padding: 0.75rem 1rem;
+    }
+}

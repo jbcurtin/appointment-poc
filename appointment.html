@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - EventHub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <strong><i class="fas fa-calendar-alt mr-2"></i>EventHub</strong>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbar-menu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html">
+                    <i class="fas fa-home mr-1"></i>Home
+                </a>
+                <a class="navbar-item is-active" href="appointment.html">
+                    <i class="fas fa-calendar-check mr-1"></i>Book Appointment
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero is-info">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <i class="fas fa-calendar-check mr-2"></i>Book Your Appointment
+                </h1>
+                <h2 class="subtitle">
+                    Reserve your spot for amazing events
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Booking Section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <!-- Progress Steps -->
+                    <div class="card mb-5">
+                        <div class="card-content">
+                            <div class="steps" id="appointment-steps">
+                                <div class="step-item is-active" data-step="1">
+                                    <div class="step-marker">
+                                        <span class="icon">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </span>
+                                    </div>
+                                    <div class="step-details">
+                                        <p class="step-title">Select Event</p>
+                                    </div>
+                                </div>
+                                <div class="step-item" data-step="2">
+                                    <div class="step-marker">
+                                        <span class="icon">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <div class="step-details">
+                                        <p class="step-title">Personal Info</p>
+                                    </div>
+                                </div>
+                                <div class="step-item" data-step="3">
+                                    <div class="step-marker">
+                                        <span class="icon">
+                                            <i class="fas fa-clock"></i>
+                                        </span>
+                                    </div>
+                                    <div class="step-details">
+                                        <p class="step-title">Date & Time</p>
+                                    </div>
+                                </div>
+                                <div class="step-item" data-step="4">
+                                    <div class="step-marker">
+                                        <span class="icon">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                                    </div>
+                                    <div class="step-details">
+                                        <p class="step-title">Confirmation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <p class="card-header-title">
+                                <i class="fas fa-edit mr-2"></i>
+                                <span id="form-title">Step 1: Select Event</span>
+                            </p>
+                        </div>
+                        <div class="card-content">
+                            <form id="appointment-form">
+                                <!-- Step 1: Event Selection -->
+                                <div id="step-1" class="step-content">
+                                    <div class="field">
+                                        <label class="label">Select Event</label>
+                                        <div class="control">
+                                            <div class="select is-fullwidth">
+                                                <select id="event-select" required>
+                                                    <option value="">Choose an event...</option>
+                                                    <option value="tech-conference">Tech Conference 2024</option>
+                                                    <option value="art-exhibition">Modern Art Exhibition</option>
+                                                    <option value="food-festival">International Food Festival</option>
+                                                    <option value="music-concert">Summer Music Concert</option>
+                                                    <option value="fitness-workshop">Wellness & Fitness Workshop</option>
+                                                    <option value="business-summit">Entrepreneurship Summit</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="selected-event-info" class="notification is-info is-light" style="display: none;">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-64x64">
+                                                    <img id="selected-event-image" src="" alt="Event">
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-5" id="selected-event-title"></p>
+                                                <p class="subtitle is-6" id="selected-event-details"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Personal Information -->
+                                <div id="step-2" class="step-content" style="display: none;">
+                                    <div class="columns">
+                                        <div class="column is-6">
+                                            <div class="field">
+                                                <label class="label">First Name</label>
+                                                <div class="control has-icons-left">
+                                                    <input class="input" type="text" id="first-name" placeholder="Enter your first name" required>
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fas fa-user"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column is-6">
+                                            <div class="field">
+                                                <label class="label">Last Name</label>
+                                                <div class="control has-icons-left">
+                                                    <input class="input" type="text" id="last-name" placeholder="Enter your last name" required>
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fas fa-user"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Email Address</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" type="email" id="email" placeholder="Enter your email address" required>
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-envelope"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Phone Number</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" type="tel" id="phone" placeholder="Enter your phone number" required>
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-phone"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Special Requirements (Optional)</label>
+                                        <div class="control">
+                                            <textarea class="textarea" id="special-requirements" placeholder="Any special requirements or notes..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Date & Time Selection -->
+                                <div id="step-3" class="step-content" style="display: none;">
+                                    <div class="columns">
+                                        <div class="column is-6">
+                                            <div class="field">
+                                                <label class="label">Preferred Date</label>
+                                                <div class="control has-icons-left">
+                                                    <input class="input" type="date" id="appointment-date" required>
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column is-6">
+                                            <div class="field">
+                                                <label class="label">Preferred Time</label>
+                                                <div class="control has-icons-left">
+                                                    <div class="select is-fullwidth">
+                                                        <select id="appointment-time" required>
+                                                            <option value="">Select time...</option>
+                                                            <option value="09:00">9:00 AM</option>
+                                                            <option value="10:00">10:00 AM</option>
+                                                            <option value="11:00">11:00 AM</option>
+                                                            <option value="12:00">12:00 PM</option>
+                                                            <option value="13:00">1:00 PM</option>
+                                                            <option value="14:00">2:00 PM</option>
+                                                            <option value="15:00">3:00 PM</option>
+                                                            <option value="16:00">4:00 PM</option>
+                                                            <option value="17:00">5:00 PM</option>
+                                                        </select>
+                                                    </div>
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fas fa-clock"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Number of Attendees</label>
+                                        <div class="control">
+                                            <div class="select">
+                                                <select id="attendees" required>
+                                                    <option value="">Select number...</option>
+                                                    <option value="1">1 person</option>
+                                                    <option value="2">2 people</option>
+                                                    <option value="3">3 people</option>
+                                                    <option value="4">4 people</option>
+                                                    <option value="5">5+ people</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="notification is-warning is-light">
+                                        <p><strong>Note:</strong> Your appointment time is subject to availability. We will confirm your booking via email within 24 hours.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Step 4: Confirmation -->
+                                <div id="step-4" class="step-content" style="display: none;">
+                                    <div class="notification is-success is-light">
+                                        <h4 class="title is-4">
+                                            <i class="fas fa-check-circle mr-2"></i>Booking Summary
+                                        </h4>
+                                    </div>
+
+                                    <div class="box">
+                                        <h5 class="title is-5">Event Details</h5>
+                                        <p><strong>Event:</strong> <span id="confirm-event"></span></p>
+                                        <p><strong>Date:</strong> <span id="confirm-date"></span></p>
+                                        <p><strong>Time:</strong> <span id="confirm-time"></span></p>
+                                        <p><strong>Attendees:</strong> <span id="confirm-attendees"></span></p>
+                                    </div>
+
+                                    <div class="box">
+                                        <h5 class="title is-5">Personal Information</h5>
+                                        <p><strong>Name:</strong> <span id="confirm-name"></span></p>
+                                        <p><strong>Email:</strong> <span id="confirm-email"></span></p>
+                                        <p><strong>Phone:</strong> <span id="confirm-phone"></span></p>
+                                        <p><strong>Special Requirements:</strong> <span id="confirm-requirements"></span></p>
+                                    </div>
+
+                                    <div class="field">
+                                        <div class="control">
+                                            <label class="checkbox">
+                                                <input type="checkbox" id="terms" required>
+                                                I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <footer class="card-footer">
+                            <button id="prev-btn" class="card-footer-item" style="display: none;" onclick="previousStep()">
+                                <i class="fas fa-arrow-left mr-2"></i>Previous
+                            </button>
+                            <button id="next-btn" class="card-footer-item" onclick="nextStep()">
+                                Next<i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                            <button id="submit-btn" class="card-footer-item" style="display: none;" onclick="submitAppointment()">
+                                <i class="fas fa-check mr-2"></i>Book Appointment
+                            </button>
+                        </footer>
+                    </div>
+                </div>
+
+                <!-- Summary Card -->
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <p class="card-header-title">
+                                <i class="fas fa-receipt mr-2"></i>Booking Summary
+                            </p>
+                        </div>
+                        <div class="card-content">
+                            <div id="booking-summary">
+                                <div class="has-text-centered">
+                                    <p class="title is-6 has-text-grey-light">
+                                        <i class="fas fa-info-circle mr-2"></i>
+                                        Select an event to see booking details
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Help Card -->
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <p class="card-header-title">
+                                <i class="fas fa-question-circle mr-2"></i>Need Help?
+                            </p>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <p>Having trouble booking your appointment?</p>
+                                <div class="buttons">
+                                    <button class="button is-small is-info">
+                                        <i class="fas fa-phone mr-2"></i>Call Support
+                                    </button>
+                                    <button class="button is-small is-primary">
+                                        <i class="fas fa-envelope mr-2"></i>Email Us
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">
+                    <i class="fas fa-check-circle has-text-success mr-2"></i>
+                    Booking Confirmed!
+                </p>
+            </header>
+            <section class="modal-card-body">
+                <div class="has-text-centered">
+                    <div class="notification is-success is-light">
+                        <p class="title is-4">Thank you for your booking!</p>
+                        <p>Your appointment has been successfully scheduled. You will receive a confirmation email shortly.</p>
+                    </div>
+                    <p><strong>Booking Reference:</strong> <span id="booking-reference"></span></p>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" onclick="closeSuccessModal()">Close</button>
+                <a href="index.html" class="button">Back to Events</a>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>EventHub</strong> - Your gateway to amazing events. 
+                <br>
+                Built with <i class="fas fa-heart has-text-danger"></i> using <a href="https://bulma.io">Bulma</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pre-select event if coming from event page
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventParam = urlParams.get('event');
+            if (eventParam) {
+                document.getElementById('event-select').value = eventParam;
+                updateEventSelection();
+            }
+
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('appointment-date').setAttribute('min', today);
+        });
+
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStepDisplay();
+                }
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+            }
+        }
+
+        function updateStepDisplay() {
+            // Update step indicators
+            document.querySelectorAll('.step-item').forEach((step, index) => {
+                step.classList.remove('is-active', 'is-completed');
+                if (index + 1 < currentStep) {
+                    step.classList.add('is-completed');
+                } else if (index + 1 === currentStep) {
+                    step.classList.add('is-active');
+                }
+            });
+
+            // Update step content
+            document.querySelectorAll('.step-content').forEach((content, index) => {
+                content.style.display = index + 1 === currentStep ? 'block' : 'none';
+            });
+
+            // Update form title
+            const titles = {
+                1: 'Step 1: Select Event',
+                2: 'Step 2: Personal Information',
+                3: 'Step 3: Date & Time',
+                4: 'Step 4: Confirmation'
+            };
+            document.getElementById('form-title').textContent = titles[currentStep];
+
+            // Update buttons
+            document.getElementById('prev-btn').style.display = currentStep > 1 ? 'block' : 'none';
+            document.getElementById('next-btn').style.display = currentStep < totalSteps ? 'block' : 'none';
+            document.getElementById('submit-btn').style.display = currentStep === totalSteps ? 'block' : 'none';
+
+            if (currentStep === 4) {
+                updateConfirmation();
+            }
+        }
+
+        function validateCurrentStep() {
+            switch(currentStep) {
+                case 1:
+                    const eventSelect = document.getElementById('event-select');
+                    if (!eventSelect.value) {
+                        alert('Please select an event.');
+                        return false;
+                    }
+                    updateEventSelection();
+                    return true;
+                case 2:
+                    const requiredFields = ['first-name', 'last-name', 'email', 'phone'];
+                    for (let field of requiredFields) {
+                        const element = document.getElementById(field);
+                        if (!element.value.trim()) {
+                            alert('Please fill in all required fields.');
+                            element.focus();
+                            return false;
+                        }
+                    }
+                    return true;
+                case 3:
+                    const dateField = document.getElementById('appointment-date');
+                    const timeField = document.getElementById('appointment-time');
+                    const attendeesField = document.getElementById('attendees');
+                    
+                    if (!dateField.value || !timeField.value || !attendeesField.value) {
+                        alert('Please fill in all appointment details.');
+                        return false;
+                    }
+                    return true;
+                case 4:
+                    const terms = document.getElementById('terms');
+                    if (!terms.checked) {
+                        alert('Please accept the terms and conditions.');
+                        return false;
+                    }
+                    return true;
+                default:
+                    return true;
+            }
+        }
+
+        function updateEventSelection() {
+            const select = document.getElementById('event-select');
+            const selectedValue = select.value;
+            const infoDiv = document.getElementById('selected-event-info');
+            
+            if (selectedValue) {
+                const eventData = getEventData(selectedValue);
+                document.getElementById('selected-event-title').textContent = eventData.title;
+                document.getElementById('selected-event-details').textContent = `${eventData.date} • ${eventData.location}`;
+                document.getElementById('selected-event-image').src = eventData.image;
+                infoDiv.style.display = 'block';
+                
+                updateBookingSummary(eventData);
+            } else {
+                infoDiv.style.display = 'none';
+            }
+        }
+
+        function updateBookingSummary(eventData) {
+            const summaryDiv = document.getElementById('booking-summary');
+            summaryDiv.innerHTML = `
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="${eventData.image}" alt="Event">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-6">${eventData.title}</p>
+                        <p class="subtitle is-7">${eventData.date}</p>
+                        <p class="has-text-primary"><strong>${eventData.price}</strong></p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateConfirmation() {
+            const eventSelect = document.getElementById('event-select');
+            const eventData = getEventData(eventSelect.value);
+            
+            document.getElementById('confirm-event').textContent = eventData.title;
+            document.getElementById('confirm-date').textContent = document.getElementById('appointment-date').value;
+            document.getElementById('confirm-time').textContent = document.getElementById('appointment-time').selectedOptions[0].text;
+            document.getElementById('confirm-attendees').textContent = document.getElementById('attendees').selectedOptions[0].text;
+            
+            document.getElementById('confirm-name').textContent = `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`;
+            document.getElementById('confirm-email').textContent = document.getElementById('email').value;
+            document.getElementById('confirm-phone').textContent = document.getElementById('phone').value;
+            document.getElementById('confirm-requirements').textContent = document.getElementById('special-requirements').value || 'None';
+        }
+
+        function submitAppointment() {
+            if (validateCurrentStep()) {
+                // Generate booking reference
+                const bookingRef = 'EVH' + Date.now().toString().slice(-6);
+                document.getElementById('booking-reference').textContent = bookingRef;
+                
+                // Show success modal
+                document.getElementById('success-modal').classList.add('is-active');
+            }
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.remove('is-active');
+            // Reset form
+            document.getElementById('appointment-form').reset();
+            currentStep = 1;
+            updateStepDisplay();
+        }
+
+        // Event selection change handler
+        document.getElementById('event-select').addEventListener('change', updateEventSelection);
+    </script>
+</body>
+</html>
